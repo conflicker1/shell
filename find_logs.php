@@ -1,7 +1,7 @@
 <?php
 // Telegram Bot Config
-$botToken = "6526444701:AAE6QMmybK5ILO1ezNHgQepF1Lz5K63ui6o"; // Replace with your Telegram Bot Token
-$chatId = "-1002080579579"; // Replace with your Telegram Chat ID
+$botToken = ":"; // Replace with your Telegram Bot Token
+$chatId = "-"; // Replace with your Telegram Chat ID
 
 // Function to find log directories
 function find_log_dirs() {
